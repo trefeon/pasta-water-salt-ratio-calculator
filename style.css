@@ -71,9 +71,10 @@ button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid #f3c9
 #waveFront.lv1{fill:#bfdbfe}#waveFront.lv2{fill:#0284c7}#waveFront.lv3{fill:#075985}
 .topbar{position:sticky;top:0;z-index:5}
 .topnav{margin-left:auto;display:flex;gap:var(--s1)}
-.topnav a{font:700 .75rem var(--num);color:var(--muted);text-decoration:none;padding:var(--s2) var(--s3);border-radius:8px;min-height:44px;display:inline-flex;align-items:center}
+.topnav a{font:700 .75rem var(--num);color:var(--muted);text-decoration:none;padding:var(--s2) var(--s3);border-radius:8px;min-height:44px;display:inline-flex;align-items:center;transition:background-color .15s,color .15s,transform .15s}
 .topnav a:first-child{background:var(--terra-deep);color:#ffece7}
-@media(hover:hover){.topnav a:hover{color:var(--terra-deep)}}
+@media(hover:hover){.topnav a:first-child:hover{background:#9b2f00;color:#fff}.topnav a:not(:first-child):hover{background:var(--cont);color:var(--ink)}}
+.topnav a:active{transform:scale(.97)}
 .oz{text-align:center;color:var(--muted);margin:0}
 .equivgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s2);margin-top:var(--s2)}
 .eq{background:var(--subtle);border-radius:10px;padding:var(--s2);text-align:center}
@@ -108,3 +109,4 @@ button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid #f3c9
 @media(max-width:640px){.tag{display:none}}
 .steprow{display:flex;align-items:baseline;justify-content:center;gap:var(--s1)}
 .stepcap{display:block;text-align:center;font:700 .62rem var(--num);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:-4px}
+@media(max-width:360px){.topbar{padding:var(--s2)}}
