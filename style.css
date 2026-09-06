@@ -102,3 +102,6 @@ button:focus-visible{outline:3px solid #f3c9ae;outline-offset:2px}
 #tipBtn:hover{border-color:var(--terra)}
 .grainhead{display:flex;justify-content:space-between;align-items:flex-start;gap:var(--s2);margin-bottom:var(--s3)}
 .grainhead .salpill{flex-shrink:0}
+@media(max-width:640px){.tag{display:none}}
+.steprow{display:flex;align-items:baseline;justify-content:center;gap:var(--s1)}
+.stepcap{display:block;text-align:center;font:700 .62rem var(--num);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:-4px}
