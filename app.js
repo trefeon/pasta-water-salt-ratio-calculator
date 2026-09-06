@@ -1,7 +1,8 @@
 // Wiring: instant recompute, droplet color, rotating tip, validation.
 const $ = (s) => document.querySelector(s);
 const water = $("#water"), err = $("#error"), gramsEl = $("#grams"), tspEl = $("#tsp");
-const ratioEl = $("#ratio"), drop = $("#drop"), tipEl = $("#tip");
+const ratioEl = $("#ratio"), drop = $("#drop"), tipEl = $("#tip"), lvlEl = $("#levelName");
+const NAMES = { light: "Lightly salted", classic: "Properly salted", restaurant: "Restaurant style" };
 let tipIdx = 0, lastKey = "";
 const val = (name) => document.querySelector(`input[name="${name}"]:checked`).value;
 function key(unit, level, raw) { return unit + "|" + level + "|" + raw.trim(); }
@@ -14,6 +15,7 @@ function update() {
   }
   const meta = LEVELS[level];
   drop.setAttribute("class", meta.drop);
+  lvlEl.textContent = NAMES[level];
   ratioEl.textContent = unit === "qt"
     ? `${meta.label} (about ${(meta.gPerL * QUART_TO_LITRE).toFixed(1)} g per quart)`
     : meta.label;
