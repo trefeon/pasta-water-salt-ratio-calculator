@@ -1,5 +1,5 @@
 /* Salmastro: terracotta + saline blue on raw linen. */
-:root{--bg:#fdfbf7;--surface:#fff;--ink:#1f2937;--muted:#6b5d54;--line:#efe7da;--terra:#c2410c;--terra-deep:#9b2f00;--amber:#fef3e2;--saline:#0284c7;--saline-deep:#075985;--saline-wash:#e0f2fe;--danger:#ba1a1a;--danger-bg:#ffdad6;--r:1rem;--s1:4px;--s2:8px;--s3:12px;--s4:16px;--s5:24px;--s6:32px;--fs-sm:.85rem;--fs:1rem;--display:Epilogue,Georgia,"Times New Roman",serif;--body:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;--num:"Space Grotesk",ui-monospace,Consolas,monospace}
+:root{--bg:#f8f9ff;--surface:#fff;--ink:#121c2a;--muted:#59413a;--line:#e1bfb5;--terra:#9b2f00;--terra-deep:#c2410c;--amber:#ffede1;--saline:#0284c7;--saline-deep:#075985;--saline-wash:#e0f2fe;--danger:#ba1a1a;--danger-bg:#ffdad6;--r:1rem;--s1:4px;--s2:8px;--s3:12px;--s4:16px;--s5:24px;--s6:32px;--fs-sm:.85rem;--fs:1rem;--display:Epilogue,Georgia,"Times New Roman",serif;--body:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;--num:"Space Grotesk",ui-monospace,Consolas,monospace}
 *{box-sizing:border-box}
 body{margin:0;font:1rem/1.5 var(--body);background:var(--bg);color:var(--ink)}
 .topbar{display:flex;align-items:center;gap:var(--s3);padding:var(--s3) var(--s4);background:var(--surface);border-bottom:1px solid var(--line)}
@@ -19,10 +19,10 @@ h1{font:700 clamp(1.7rem,1.2rem + 3vw,2.4rem)/1.15 var(--display);letter-spacing
 .cardhead{display:flex;align-items:center;justify-content:space-between;gap:var(--s2);margin-bottom:var(--s3)}
 h2{font:600 1.15rem var(--display);margin:0}
 .caps{font:700 .7rem var(--num);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:var(--s3) 0 var(--s2)}
-.pill{display:flex;background:#f4efe6;border-radius:999px;padding:3px;box-shadow:inset 0 2px 4px rgba(31,41,55,.08)}
+.pill{display:flex;background:#e6eeff;border-radius:999px;padding:3px;box-shadow:inset 0 2px 4px rgba(31,41,55,.08)}
 .pill button{border:0;background:transparent;color:var(--muted);font:700 .72rem var(--num);letter-spacing:.05em;padding:var(--s2) var(--s3);border-radius:999px;cursor:pointer;min-height:44px}
 .pill button[aria-pressed="true"]{background:#fff;color:var(--terra-deep);box-shadow:0 2px 6px rgba(31,41,55,.12)}
-.stepper{display:flex;gap:var(--s2);align-items:stretch;background:#f4efe6;border-radius:var(--r);padding:var(--s2)}
+.stepper{display:flex;gap:var(--s2);align-items:stretch;background:#e6eeff;border-radius:var(--r);padding:var(--s2)}
 .stepper>button{width:56px;min-height:56px;border:0;border-radius:12px;background:#fff;font-size:1.6rem;color:var(--ink);cursor:pointer;box-shadow:0 2px 6px rgba(31,41,55,.1)}
 .stepper>button:active{transform:scale(.94)}
 .stepval{flex:1;display:flex;align-items:baseline;justify-content:center;gap:var(--s2)}
@@ -45,7 +45,7 @@ h2{font:600 1.15rem var(--display);margin:0}
 .lvl strong{display:block;font:600 1.05rem var(--display)}
 .lvl em{display:block;font:600 .85rem var(--num);font-style:normal;color:var(--terra-deep)}
 .lvl small{color:var(--muted);font-size:.82rem}
-.lvl:has(input:checked){border-color:var(--terra);border-bottom-width:4px;background:#fffdf9}
+.lvl:has(input:checked){border-color:var(--terra);border-bottom-width:4px;background:#fff}
 .lvl:has(input:focus-visible){outline:3px solid #f3c9ae;outline-offset:2px}
 .output{display:block}
 .hero{background:var(--surface);border:2px solid var(--saline);border-radius:24px;padding:var(--s4);margin-bottom:var(--s4);box-shadow:0 8px 24px -4px rgba(2,132,199,.14)}
