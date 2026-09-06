@@ -3,60 +3,77 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Pasta Water Salt Calculator</title>
-<meta name="theme-color" content="#edf2f7">
+<title>Salmastro — Pasta Water Salinity Calculator</title>
+<meta name="theme-color" content="#fdfbf7">
+<meta name="description" content="How much salt for pasta water: litres or quarts, three salinity levels, instant grams and teaspoons.">
 <link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <header class="topbar">
-<img src="icon.svg" width="32" height="32" alt="">
-<span class="brand">Pasta Salt</span>
-<span class="tag">stove-side helper</span>
+<img src="icon.svg" width="36" height="36" alt="">
+<div><span class="brand">Salmastro</span>
+<span class="tag">Season like a nonna, measure like a chef</span></div>
 </header>
-<main id="app">
-<h1>Salt your pasta water</h1>
-<p class="lede">Enter your water, pick a saltiness. Get grams and teaspoons, instantly.</p>
-<form id="calc" novalidate>
-<div class="field">
-<label for="water">Water amount</label>
-<input id="water" name="water" type="number" inputmode="decimal" min="0" step="any" placeholder="e.g. 4" autocomplete="off">
-<fieldset class="seg" id="unitSeg">
-<legend>Unit</legend>
-<label><input type="radio" name="unit" value="L" checked><span>Litres</span></label>
-<label><input type="radio" name="unit" value="qt"><span>Quarts</span></label>
-</fieldset>
+<main>
+<p class="eyebrow"><span class="dot" aria-hidden="true"></span>Precision culinary utility</p>
+<h1>Pasta Water Salinity Calculator</h1>
+<p class="lede">Al dente seasoning without over-salted sauces or bland dough. Calibrated to the Italian golden standard.</p>
+<div class="badges" aria-live="polite">
+<div class="badge"><span class="k">Target ratio</span><strong id="ratioBadge">10 g / 1000 ml</strong></div>
+<div class="badge"><span class="k">Saline density</span><strong id="densityBadge">1.0% m/v</strong></div>
+</div>
+<div class="bench">
+<div class="controls">
+<section class="card" aria-labelledby="waterH">
+<div class="cardhead"><h2 id="waterH">Water volume</h2>
+<div class="pill" role="group" aria-label="Measurement unit">
+<button type="button" data-unit="L" aria-pressed="true">Litres (L)</button>
+<button type="button" data-unit="qt" aria-pressed="false">Quarts (qt)</button>
+</div></div>
+<div class="stepper">
+<button type="button" id="minus" aria-label="Decrease water by half a litre">−</button>
+<div class="stepval"><input id="water" name="water" type="number" inputmode="decimal" min="0" step="any" value="3" autocomplete="off" aria-label="Water amount"><span id="unitLabel">L</span></div>
+<button type="button" id="plus" aria-label="Increase water by half a litre">+</button>
+</div>
+<p class="caps">Quick pot presets</p>
 <div class="presets" role="group" aria-label="Pot presets">
-<button type="button" data-l="1.5">Solo<small>1.5 L</small></button>
-<button type="button" data-l="3">Family<small>3 L</small></button>
-<button type="button" data-l="5">Party<small>5 L</small></button>
+<button type="button" data-l="1.5"><strong>Solo / 100 g</strong><small>1.5 L · small pot</small></button>
+<button type="button" data-l="3"><strong>Family / 300 g</strong><small>3.0 L · standard pot</small></button>
+<button type="button" data-l="5"><strong>Party / 500 g+</strong><small>5.0 L · stockpot</small></button>
 </div>
-</div>
-<fieldset class="field" id="levelSeg">
-<legend>Saltiness</legend>
-<div class="levels">
-<label><input type="radio" name="level" value="light"><span>Lightly salted<small>5 g/L · 0.5%</small></span></label>
-<label><input type="radio" name="level" value="classic" checked><span>Properly salted<small>10 g/L · 1.0%</small></span></label>
-<label><input type="radio" name="level" value="restaurant"><span>Restaurant style<small>15 g/L · 1.5%</small></span></label>
-</div>
-</fieldset>
 <p class="error" id="error" role="alert" hidden></p>
-</form>
-<section class="card" aria-live="polite" aria-label="Recommended salt">
-<div class="result-row">
-<div class="dropwrap"><svg id="drop" class="lv2" width="64" height="82" viewBox="0 0 56 72" aria-hidden="true"><path d="M28 2C28 2 6 34 6 48a22 22 0 0 0 44 0C50 34 28 2 28 2Z"/></svg><p class="lvl" id="levelName">Properly salted</p></div>
-<div>
-<p class="k">Add this salt</p>
-<p class="grams"><span id="grams">—</span> <span class="unit">g</span></p>
-<p class="tsp"><span id="tsp">—</span> tsp</p>
-<p class="ratio" id="ratio">10 g per litre</p>
-</div>
-</div>
-<p class="tip"><strong>Why it matters:</strong> <span id="tip">Salted water seasons pasta from the inside; sauce only coats the outside.</span></p>
 </section>
-<p class="hint" id="hint">Enter your water amount to get a measure. 1 tsp table salt ≈ 6 g · 1 quart ≈ 0.95 L.</p>
+<section class="card" aria-labelledby="salH">
+<div class="cardhead"><h2 id="salH">Salinity standard</h2><span class="caps">Culinary dial</span></div>
+<div class="levels" role="radiogroup" aria-label="Saltiness">
+<label class="lvl" data-level="light"><input type="radio" name="level" value="light"><span class="lvtag">Delicato · 0.5%</span><strong>Light &amp; mild</strong><em>5.0 g per litre</em><small>Subtle seafood, fresh broths, salt-sensitive guests.</small></label>
+<label class="lvl" data-level="classic"><input type="radio" name="level" value="classic" checked><span class="lvtag">Tradizionale · 1.0%</span><strong>Golden standard</strong><em>10.0 g per litre</em><small>The authentic Italian balance. Seasons durum semolina without excess.</small></label>
+<label class="lvl" data-level="restaurant"><input type="radio" name="level" value="restaurant"><span class="lvtag">Ristorante · 1.5%</span><strong>Bold &amp; punchy</strong><em>15.0 g per litre</em><small>For emulsion pasta — cacio e pepe, carbonara — where water seasons sauce.</small></label>
+</div>
+</section>
+</div>
+<aside class="output">
+<section class="hero" aria-live="polite" aria-label="Recommended salt">
+<div class="herohead"><span class="caps">Target salt addition</span><span class="salpill" id="salPill">1.0% salinity</span></div>
+<svg class="wave" viewBox="0 0 300 76" aria-hidden="true"><rect width="300" height="76" rx="14" fill="#e0f2fe"/><path id="wavePath" d="M0 44 C30 34 60 54 90 44 C120 34 150 54 180 44 C210 34 240 54 270 44 C285 39 295 41 300 43 L300 76 L0 76 Z" fill="#38bdf8" opacity=".55"/><path d="M0 52 C35 44 65 60 100 52 C135 44 165 60 200 52 C235 44 265 58 300 50 L300 76 L0 76 Z" fill="#0284c7" opacity=".8"/></svg>
+<p class="caps" id="waveCap">Mediterranean balance (10 g/L)</p>
+<p class="caps">Total salt needed</p>
+<p class="grams"><span id="grams">30</span> <span class="unit">grams</span></p>
+<p class="equiv" id="equiv">≈ 5 tsp fine sea salt · 1.7 tbsp</p>
+</section>
+<section class="tipcard" aria-label="Chef tip">
+<div class="tiphead"><span class="caps">Chef's secret wisdom</span><span class="caps" id="tipCount">Tip 1 of 5</span></div>
+<p class="tip" id="tip">Salted water seasons pasta from the inside; sauce only coats the outside.</p>
+<p class="tipby">Marcella Hazan codex</p>
+</section>
+</aside>
+</div>
 </main>
-<footer class="footer">No backend, nothing stored. Built for VibeDev.</footer>
+<footer><strong>Salmastro salinity standards</strong><span>10 g fine salt per 1000 g water (1.0% target) · 1 tsp ≈ 6 g · 1 quart ≈ 0.95 L</span></footer>
 <script src="calc.js"></script>
 <script src="app.js"></script>
 </body>
