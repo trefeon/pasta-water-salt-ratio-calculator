@@ -30,7 +30,7 @@
 <div class="bench">
 <div class="controls">
 <section class="card" aria-labelledby="waterH">
-<div class="cardhead"><h2 id="waterH">Water volume</h2>
+<div class="cardhead"><h2 id="waterH"><svg class="ico" width="15" height="19" viewBox="0 0 56 72" aria-hidden="true"><path d="M28 2C28 2 6 34 6 48a22 22 0 0 0 44 0C50 34 28 2 28 2Z" fill="#0284c7"/></svg>Water volume</h2>
 <div class="pill" role="group" aria-label="Measurement unit">
 <button type="button" data-unit="L" aria-pressed="true">Litres (L)</button>
 <button type="button" data-unit="qt" aria-pressed="false">Quarts (qt)</button>
@@ -59,7 +59,7 @@
 </div>
 <aside class="output">
 <section class="hero" aria-live="polite" aria-label="Recommended salt">
-<div class="herohead"><span class="caps">Target salt addition</span><span class="salpill" id="salPill">1.0% salinity</span></div>
+<div class="herohead"><span class="caps"><svg class="ico" width="13" height="17" viewBox="0 0 56 72" aria-hidden="true"><path d="M28 2C28 2 6 34 6 48a22 22 0 0 0 44 0C50 34 28 2 28 2Z" fill="#c2410c"/></svg>Target salt addition</span><span class="salpill" id="salPill">1.0% salinity</span></div>
 <svg class="wave" viewBox="0 0 300 76" aria-hidden="true"><rect width="300" height="76" rx="14" fill="#e0f2fe"/><path d="M0 44 C30 34 60 54 90 44 C120 34 150 54 180 44 C210 34 240 54 270 44 C285 39 295 41 300 43 L300 76 L0 76 Z" fill="#38bdf8" opacity=".55"/><path id="waveFront" class="lv2" d="M0 52 C35 44 65 60 100 52 C135 44 165 60 200 52 C235 44 265 58 300 50 L300 76 L0 76 Z" opacity=".8"/></svg>
 <p class="caps" id="waveCap">Mediterranean balance (10 g/L)</p>
 <p class="caps">Total salt needed</p>
@@ -71,9 +71,10 @@
 <div class="eq"><span>Morton kosher</span><strong id="eqMor">6.5 tsp</strong><small id="eqMorT">2.2 tbsp</small></div>
 <div class="eq"><span>Diamond Crystal</span><strong id="eqDia">10 tsp</strong><small id="eqDiaT">3.3 tbsp</small></div>
 </div>
+<p class="boilnote">Add salt <strong>only after</strong> a rolling boil — dissolves instantly, protects the pot.</p>
 </section>
 <section class="tipcard" aria-label="Chef tip">
-<div class="tiphead"><span class="caps">Chef's secret wisdom</span><span class="caps" id="tipCount">Tip 1 of 5</span></div>
+<div class="tiphead"><span class="caps">Chef's secret wisdom</span><span class="row"><span class="caps" id="tipCount">Tip 1 of 5</span><button type="button" id="tipBtn" aria-label="Next tip">↻</button></span></div>
 <p class="tip" id="tip">Salted water seasons pasta from the inside; sauce only coats the outside.</p>
 <p class="tipby">Marcella Hazan codex</p>
 </section>
@@ -81,8 +82,8 @@
 </div>
 <section class="card warn" aria-label="Salt density warning"><div><strong>Never substitute kosher and table salt 1:1 by volume.</strong><span>Chef's rule: grams never lie.</span></div></section>
 <section class="grains" id="grains" aria-labelledby="grainH">
-<div><h2 id="grainH">Salt grain equivalence guide</h2>
-<p class="gsub">Flakes hold air, so one spoon of table salt is twice as salty as Diamond Crystal. Basis: 10 g salt.</p></div>
+<div class="grainhead"><div><h2 id="grainH">Salt grain equivalence guide</h2>
+<p class="gsub">Flakes hold air, so one spoon of table salt is twice as salty as Diamond Crystal.</p></div><span class="salpill">Basis: 10 g salt</span></div>
 <div class="graingrid">
 <div class="grain"><div class="grow"><strong>Fine sea salt</strong><span>Dense cube</span></div><p>Compact grains, almost zero air pockets.</p><p class="gnum">1.7 tsp <small>yields ~10 g</small></p><div class="bar"><i style="width:35%"></i></div></div>
 <div class="grain"><div class="grow"><strong>Morton kosher</strong><span>Dense flake</span></div><p>Flat rolled crystals, moderate density.</p><p class="gnum">2.2 tsp <small>yields ~10 g</small></p><div class="bar"><i style="width:55%"></i></div></div>

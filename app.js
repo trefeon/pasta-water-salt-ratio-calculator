@@ -81,3 +81,9 @@ water.addEventListener("input", update);
 water.addEventListener("change", update);
 document.querySelectorAll('input[name="level"]').forEach(r => r.addEventListener("change", update));
 update();
+$("#tipBtn").addEventListener("click", () => {
+  tipIdx = (tipIdx + 1) % TIPS.length;
+  tipEl.textContent = TIPS[tipIdx];
+  tipCount.textContent = `Tip ${tipIdx + 1} of ${TIPS.length}`;
+  lastKey = key();
+});

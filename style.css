@@ -93,3 +93,12 @@ button:focus-visible{outline:3px solid #f3c9ae;outline-offset:2px}
 .warn{border-left:4px solid var(--terra)}
 .warn strong{display:block;font-family:var(--display)}
 .warn span{color:var(--muted);font-size:.85rem}
+.ico{vertical-align:-3px;margin-right:2px}
+.boilnote{background:var(--bg);border-radius:10px;padding:var(--s2) var(--s3);font-size:.85rem;color:var(--muted);margin:var(--s2) 0 0}
+.boilnote strong{color:var(--ink)}
+.tiphead{align-items:center}
+.tiphead .row{display:inline-flex;align-items:center;gap:var(--s2)}
+#tipBtn{border:1px solid var(--line);background:var(--surface);color:var(--terra-deep);border-radius:8px;min-width:44px;min-height:44px;font-size:1.1rem;cursor:pointer}
+#tipBtn:hover{border-color:var(--terra)}
+.grainhead{display:flex;justify-content:space-between;align-items:flex-start;gap:var(--s2);margin-bottom:var(--s3)}
+.grainhead .salpill{flex-shrink:0}
