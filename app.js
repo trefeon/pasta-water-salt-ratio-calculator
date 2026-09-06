@@ -34,5 +34,7 @@ function update() {
   const r = calcSalt(parsed.value, unit, level);
   gramsEl.textContent = String(r.grams); tspEl.textContent = String(r.tsp);
 }
-document.querySelector("#calc").addEventListener("input", update);
+const form = document.querySelector("#calc");
+form.addEventListener("input", update);
+form.addEventListener("change", update);
 update();
