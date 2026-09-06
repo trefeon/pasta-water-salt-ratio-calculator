@@ -63,6 +63,7 @@ h2{font:600 1.15rem var(--display);margin:0}
 footer{max-width:560px;margin:0 auto;padding:0 var(--s4) var(--s6);color:var(--muted);font-size:.82rem;display:flex;flex-direction:column;gap:2px}
 footer strong{color:var(--ink);font-family:var(--display)}
 button:focus-visible{outline:3px solid #f3c9ae;outline-offset:2px}
+@media(min-width:768px){main,footer{max-width:864px}.bench{display:grid;grid-template-columns:7fr 5fr;gap:var(--s4);align-items:start}.output{position:sticky;top:var(--s4)}.levels{grid-template-columns:repeat(3,1fr)}}
 @media(prefers-reduced-motion:reduce){.stepper>button:active{transform:none}#waveFront{transition:none}}
 #waveFront{transition:fill .5s ease}
 #waveFront.lv1{fill:#bfdbfe}#waveFront.lv2{fill:#0284c7}#waveFront.lv3{fill:#075985}
