@@ -90,3 +90,6 @@ button:focus-visible{outline:3px solid #f3c9ae;outline-offset:2px}
 .bar{height:8px;border-radius:99px;background:var(--line);overflow:hidden;margin-top:var(--s2)}
 .bar i{display:block;height:100%;background:var(--terra);border-radius:99px}
 @media(min-width:768px){.graingrid{grid-template-columns:repeat(3,1fr)}}
+.warn{border-left:4px solid var(--terra)}
+.warn strong{display:block;font-family:var(--display)}
+.warn span{color:var(--muted);font-size:.85rem}
