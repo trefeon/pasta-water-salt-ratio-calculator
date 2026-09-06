@@ -1,9 +1,12 @@
 // Wiring: stepper, presets, unit pill, salinity cards, badges, tips, validation.
 const $ = (s) => document.querySelector(s);
-const water = $("#water"), err = $("#error"), gramsEl = $("#grams"),
-  equivEl = $("#equiv"), tipEl = $("#tip"), tipCount = $("#tipCount"),
+const water = $("#water"), err = $("#error"), gramsEl = $("#grams"), ozEl = $("#oz"),
+  tipEl = $("#tip"), tipCount = $("#tipCount"),
   ratioBadge = $("#ratioBadge"), densityBadge = $("#densityBadge"),
   salPill = $("#salPill"), waveCap = $("#waveCap"), unitLabel = $("#unitLabel"),
+  eqFine = $("#eqFine"), eqFineT = $("#eqFineT"),
+  eqMor = $("#eqMor"), eqMorT = $("#eqMorT"),
+  eqDia = $("#eqDia"), eqDiaT = $("#eqDiaT"),
   unitBtns = [...document.querySelectorAll(".pill button")],
   presetBtns = [...document.querySelectorAll(".presets button")];
 const waveFront = $("#waveFront"), DROP = { light: "lv1", classic: "lv2", restaurant: "lv3" };
@@ -15,6 +18,16 @@ function setUnit(u) {
   unitBtns.forEach(b => b.setAttribute("aria-pressed", String(b.dataset.unit === u)));
   unitLabel.textContent = u === "qt" ? "qt" : "L";
   update();
+}
+/** @param {ReturnType<typeof calcSalt> | null} r */
+function setTiles(r) {
+  ozEl.textContent = r ? `(≈ ${r.oz} oz)` : "";
+  eqFine.textContent = r ? `${r.fine.tsp} tsp` : "—";
+  eqFineT.textContent = r ? `${r.fine.tbsp} tbsp` : "";
+  eqMor.textContent = r ? `${r.morton.tsp} tsp` : "—";
+  eqMorT.textContent = r ? `${r.morton.tbsp} tbsp` : "";
+  eqDia.textContent = r ? `${r.diamond.tsp} tsp` : "—";
+  eqDiaT.textContent = r ? `${r.diamond.tbsp} tbsp` : "";
 }
 function update() {
   const lv = level(), raw = water.value, meta = LEVELS[lv];
@@ -29,26 +42,27 @@ function update() {
     : `${meta.gPerL} g / 1000 ml`;
   densityBadge.textContent = `${meta.pct} m/v`;
   salPill.textContent = `${meta.pct} salinity`;
+  waveCap.textContent = meta.blurb;
   waveFront.setAttribute("class", DROP[lv]);
   presetBtns.forEach(b => b.classList.toggle("on",
     Math.abs(Number(b.dataset.l) - (unit === "qt" ? Number(raw) * QUART_TO_LITRE : Number(raw))) < 0.001 && raw.trim() !== ""));
   const parsed = parseAmount(raw);
   if (!parsed.ok) {
-    gramsEl.textContent = "—"; equivEl.textContent = "Enter water to get the dose";
+    gramsEl.textContent = "—"; setTiles(null);
     err.hidden = parsed.problem === "empty";
     if (!err.hidden) err.textContent = parsed.problem;
     return;
   }
   const litres = unit === "qt" ? parsed.value * QUART_TO_LITRE : parsed.value;
   if (litres > MAX_WATER) {
-    gramsEl.textContent = "—"; equivEl.textContent = "Check the amount";
+    gramsEl.textContent = "—"; setTiles(null);
     err.textContent = "That is a lot of water — double-check the amount."; err.hidden = false;
     return;
   }
   err.hidden = true;
   const r = calcSalt(parsed.value, unit, lv);
   gramsEl.textContent = String(r.grams);
-  equivEl.textContent = `≈ ${r.tsp} tsp fine sea salt · ${r.tbsp} tbsp`;
+  setTiles(r);
 }
 function step(d) {
   const cur = Number(water.value) || 0;

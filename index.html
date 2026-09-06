@@ -17,6 +17,7 @@
 <img src="icon.svg" width="36" height="36" alt="">
 <div><span class="brand">Salmastro</span>
 <span class="tag">Season like a nonna, measure like a chef</span></div>
+<nav class="topnav"><a href="#waterH">Calculator</a><a href="#grains">Grain guide</a></nav>
 </header>
 <main>
 <p class="eyebrow"><span class="dot" aria-hidden="true"></span>Precision culinary utility</p>
@@ -63,7 +64,13 @@
 <p class="caps" id="waveCap">Mediterranean balance (10 g/L)</p>
 <p class="caps">Total salt needed</p>
 <p class="grams"><span id="grams">30</span> <span class="unit">grams</span></p>
-<p class="equiv" id="equiv">≈ 5 tsp fine sea salt · 1.7 tbsp</p>
+<p class="oz" id="oz">(≈ 1.06 oz)</p>
+<p class="caps">Volumetric equivalents</p>
+<div class="equivgrid">
+<div class="eq"><span>Fine sea / table</span><strong id="eqFine">5 tsp</strong><small id="eqFineT">1.7 tbsp</small></div>
+<div class="eq"><span>Morton kosher</span><strong id="eqMor">6.5 tsp</strong><small id="eqMorT">2.2 tbsp</small></div>
+<div class="eq"><span>Diamond Crystal</span><strong id="eqDia">10 tsp</strong><small id="eqDiaT">3.3 tbsp</small></div>
+</div>
 </section>
 <section class="tipcard" aria-label="Chef tip">
 <div class="tiphead"><span class="caps">Chef's secret wisdom</span><span class="caps" id="tipCount">Tip 1 of 5</span></div>
@@ -72,6 +79,15 @@
 </section>
 </aside>
 </div>
+<section class="grains" id="grains" aria-labelledby="grainH">
+<div><h2 id="grainH">Salt grain equivalence guide</h2>
+<p class="gsub">Flakes hold air, so one spoon of table salt is twice as salty as Diamond Crystal. Basis: 10 g salt.</p></div>
+<div class="graingrid">
+<div class="grain"><div class="grow"><strong>Fine sea salt</strong><span>Dense cube</span></div><p>Compact grains, almost zero air pockets.</p><p class="gnum">1.7 tsp <small>yields ~10 g</small></p><div class="bar"><i style="width:35%"></i></div></div>
+<div class="grain"><div class="grow"><strong>Morton kosher</strong><span>Dense flake</span></div><p>Flat rolled crystals, moderate density.</p><p class="gnum">2.2 tsp <small>yields ~10 g</small></p><div class="bar"><i style="width:55%"></i></div></div>
+<div class="grain"><div class="grow"><strong>Diamond Crystal</strong><span>Hollow pyramid</span></div><p>Fragile hollow pyramids, large air gaps.</p><p class="gnum">3.3 tsp <small>yields ~10 g</small></p><div class="bar"><i style="width:90%"></i></div></div>
+</div>
+</section>
 </main>
 <footer><strong>Salmastro salinity standards</strong><span>10 g fine salt per 1000 g water (1.0% target) · 1 tsp ≈ 6 g · 1 quart ≈ 0.95 L</span></footer>
 <script src="calc.js"></script>

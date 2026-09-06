@@ -2,6 +2,8 @@
 // Pure domain logic: rates, conversions, validation, tips.
 const GRAMS_PER_TSP = 6;
 const QUART_TO_LITRE = 0.946353;
+const GRAIN_TSP = { fine: 5.9, morton: 4.6, diamond: 3.0 }; // grams per tsp
+const GRAMS_PER_OZ = 28.3495;
 const MAX_WATER = 50; // litres; above this is almost certainly a typo
 /** @typedef {"light"|"classic"|"restaurant"} Level */
 /** @type {Record<Level, {gPerL:number,pct:string,name:string,blurb:string}>} */
@@ -33,11 +35,12 @@ function parseAmount(raw) {
  * @param {number} amount user-entered amount in the given unit
  * @param {"L"|"qt"} unit
  * @param {Level} level
- * @returns {{grams:number,tsp:number,tbsp:number}}
+ * @returns {{grams:number,oz:number,fine:{tsp:number,tbsp:number},morton:{tsp:number,tbsp:number},diamond:{tsp:number,tbsp:number}}}
  */
 function calcSalt(amount, unit, level) {
   const litres = unit === "qt" ? amount * QUART_TO_LITRE : amount;
   const grams = litres * LEVELS[level].gPerL;
   const r1 = (n) => Math.round(n * 10) / 10;
-  return { grams: r1(grams), tsp: r1(grams / GRAMS_PER_TSP), tbsp: r1(grams / GRAMS_PER_TSP / 3) };
+  const grain = (g) => ({ tsp: r1(grams / g), tbsp: r1(grams / g / 3) });
+  return { grams: r1(grams), oz: r1(grams / GRAMS_PER_OZ * 10) / 10, fine: grain(GRAIN_TSP.fine), morton: grain(GRAIN_TSP.morton), diamond: grain(GRAIN_TSP.diamond) };
 }
