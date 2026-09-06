@@ -6,6 +6,7 @@ const water = $("#water"), err = $("#error"), gramsEl = $("#grams"),
   salPill = $("#salPill"), waveCap = $("#waveCap"), unitLabel = $("#unitLabel"),
   unitBtns = [...document.querySelectorAll(".pill button")],
   presetBtns = [...document.querySelectorAll(".presets button")];
+const waveFront = $("#waveFront"), DROP = { light: "lv1", classic: "lv2", restaurant: "lv3" };
 let unit = "L", tipIdx = 0, lastKey = "";
 const level = () => document.querySelector('input[name="level"]:checked').value;
 const key = () => unit + "|" + level() + "|" + water.value.trim();
@@ -28,7 +29,7 @@ function update() {
     : `${meta.gPerL} g / 1000 ml`;
   densityBadge.textContent = `${meta.pct} m/v`;
   salPill.textContent = `${meta.pct} salinity`;
-  waveCap.textContent = meta.blurb;
+  waveFront.setAttribute("class", DROP[lv]);
   presetBtns.forEach(b => b.classList.toggle("on",
     Math.abs(Number(b.dataset.l) - (unit === "qt" ? Number(raw) * QUART_TO_LITRE : Number(raw))) < 0.001 && raw.trim() !== ""));
   const parsed = parseAmount(raw);

@@ -65,4 +65,6 @@ footer strong{color:var(--ink);font-family:var(--display)}
 button:focus-visible{outline:3px solid #f3c9ae;outline-offset:2px}
 @media(min-width:768px){main,footer{max-width:864px}.bench{display:grid;grid-template-columns:7fr 5fr;gap:var(--s4);align-items:start}.output{position:sticky;top:var(--s4)}.levels{grid-template-columns:repeat(3,1fr)}}
 @media(prefers-color-scheme:dark){:root{--bg:#171310;--surface:#221c17;--ink:#f3ebe1;--muted:#b8a89a;--line:#3a3129;--amber:#3a2417;--saline-wash:#0e2f42}.pill,.stepper{background:#14100d}.pill button[aria-pressed="true"],.stepper>button{background:#2c241c;color:var(--ink)}.presets button{background:#14100d}.lvl:has(input:checked){background:#241a12}#water{color:var(--ink)}.hero{box-shadow:none}}
-@media(prefers-reduced-motion:reduce){.stepper>button:active{transform:none}}
+@media(prefers-reduced-motion:reduce){.stepper>button:active{transform:none}#waveFront{transition:none}}
+#waveFront{transition:fill .5s ease}
+#waveFront.lv1{fill:#bfdbfe}#waveFront.lv2{fill:#0284c7}#waveFront.lv3{fill:#075985}
