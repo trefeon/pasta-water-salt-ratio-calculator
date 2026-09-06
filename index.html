@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pasta Water Salt Calculator</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+<span class="brand">Pasta Salt</span>
+<span class="tag">stove-side helper</span>
+</header>
+<main id="app">
+<h1>Salt your pasta water</h1>
+<p class="lede">Enter your water, pick a saltiness. Get grams and teaspoons, instantly.</p>
+<form id="calc" novalidate>
+<div class="field">
+<label for="water">Water amount</label>
+<input id="water" name="water" type="number" inputmode="decimal" min="0" step="any" placeholder="e.g. 4" autocomplete="off">
+<fieldset class="seg" id="unitSeg">
+<legend>Unit</legend>
+<label><input type="radio" name="unit" value="L" checked><span>Litres</span></label>
+<label><input type="radio" name="unit" value="qt"><span>Quarts</span></label>
+</fieldset>
+</div>
+<fieldset class="field" id="levelSeg">
+<legend>Saltiness</legend>
+<div class="levels">
+<label><input type="radio" name="level" value="light"><span>Lightly salted<small>5 g/L</small></span></label>
+<label><input type="radio" name="level" value="classic" checked><span>Properly salted<small>10 g/L</small></span></label>
+<label><input type="radio" name="level" value="restaurant"><span>Restaurant style<small>15 g/L</small></span></label>
+</div>
+</fieldset>
+<p class="error" id="error" role="alert" hidden></p>
+</form>
+<section class="card" aria-live="polite" aria-label="Recommended salt">
+<div class="result-row">
+<svg id="drop" class="lv2" width="56" height="72" viewBox="0 0 56 72" aria-hidden="true"><path d="M28 2C28 2 6 34 6 48a22 22 0 0 0 44 0C50 34 28 2 28 2Z"/></svg>
+<div>
+<p class="k">Add this salt</p>
+<p class="grams"><span id="grams">—</span> <span class="unit">g</span></p>
+<p class="tsp"><span id="tsp">—</span> tsp</p>
+<p class="ratio" id="ratio">10 g per litre</p>
+</div>
+</div>
+<p class="tip"><strong>Why it matters:</strong> <span id="tip">Salted water seasons pasta from the inside; sauce only coats the outside.</span></p>
+</section>
+<p class="hint" id="hint">Enter your water amount to get a measure. 1 tsp table salt ≈ 6 g · 1 quart ≈ 0.95 L.</p>
+</main>
+<footer class="footer">No backend, nothing stored. Built for VibeDev.</footer>
+<script src="calc.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
