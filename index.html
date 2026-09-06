@@ -25,13 +25,18 @@
 <label><input type="radio" name="unit" value="L" checked><span>Litres</span></label>
 <label><input type="radio" name="unit" value="qt"><span>Quarts</span></label>
 </fieldset>
+<div class="presets" role="group" aria-label="Pot presets">
+<button type="button" data-l="1.5">Solo<small>1.5 L</small></button>
+<button type="button" data-l="3">Family<small>3 L</small></button>
+<button type="button" data-l="5">Party<small>5 L</small></button>
+</div>
 </div>
 <fieldset class="field" id="levelSeg">
 <legend>Saltiness</legend>
 <div class="levels">
-<label><input type="radio" name="level" value="light"><span>Lightly salted<small>5 g/L</small></span></label>
-<label><input type="radio" name="level" value="classic" checked><span>Properly salted<small>10 g/L</small></span></label>
-<label><input type="radio" name="level" value="restaurant"><span>Restaurant style<small>15 g/L</small></span></label>
+<label><input type="radio" name="level" value="light"><span>Lightly salted<small>5 g/L · 0.5%</small></span></label>
+<label><input type="radio" name="level" value="classic" checked><span>Properly salted<small>10 g/L · 1.0%</small></span></label>
+<label><input type="radio" name="level" value="restaurant"><span>Restaurant style<small>15 g/L · 1.5%</small></span></label>
 </div>
 </fieldset>
 <p class="error" id="error" role="alert" hidden></p>

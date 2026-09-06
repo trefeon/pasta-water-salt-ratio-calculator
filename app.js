@@ -39,4 +39,9 @@ function update() {
 const form = document.querySelector("#calc");
 form.addEventListener("input", update);
 form.addEventListener("change", update);
+document.querySelectorAll(".presets button").forEach(b => b.addEventListener("click", () => {
+  const litres = Number(b.dataset.l);
+  water.value = val("unit") === "qt" ? String(Math.round(litres / QUART_TO_LITRE * 10) / 10) : String(litres);
+  update();
+}));
 update();
