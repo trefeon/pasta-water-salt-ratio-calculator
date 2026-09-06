@@ -56,7 +56,7 @@ function update() {
   const litres = unit === "qt" ? parsed.value * QUART_TO_LITRE : parsed.value;
   if (litres > MAX_WATER) {
     gramsEl.textContent = "—"; setTiles(null);
-    err.textContent = "That is a lot of water — double-check the amount."; err.hidden = false;
+    err.textContent = "That is a lot of water. Please double-check the amount."; err.hidden = false;
     return;
   }
   err.hidden = true;
