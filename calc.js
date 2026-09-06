@@ -1,12 +1,9 @@
 // @ts-check
-// Pure domain logic: rates, conversions, validation, tips.
 const GRAMS_PER_TSP = 6;
 const QUART_TO_LITRE = 0.946353;
-const GRAIN_TSP = { fine: 5.9, morton: 4.6, diamond: 3.0 }; // grams per tsp
+const GRAIN_TSP = { fine: 5.9, morton: 4.6, diamond: 3.0 };
 const GRAMS_PER_OZ = 28.3495;
-const MAX_WATER = 50; // litres; above this is almost certainly a typo
-/** @typedef {"light"|"classic"|"restaurant"} Level */
-/** @type {Record<Level, {gPerL:number,pct:string,name:string,blurb:string}>} */
+const MAX_WATER = 50;
 const LEVELS = {
   light: { gPerL: 5, pct: "0.5%", name: "Delicato", blurb: "Subtle balance (5 g/L)" },
   classic: { gPerL: 10, pct: "1.0%", name: "Mediterranean balance", blurb: "Mediterranean balance (10 g/L)" },
@@ -19,10 +16,6 @@ const TIPS = [
   "Water salted like the sea means you need less salt in the sauce later.",
   "Unsalted pasta tastes flat no matter how good the sauce is.",
 ];
-/**
- * @param {string} raw
- * @returns {{ok:true,value:number}|{ok:false,problem:string}}
- */
 function parseAmount(raw) {
   const t = raw.trim().replace(",", ".");
   if (!t) return { ok: false, problem: "empty" };
@@ -31,12 +24,6 @@ function parseAmount(raw) {
   if (v <= 0) return { ok: false, problem: "Enter a water amount above 0." };
   return { ok: true, value: v };
 }
-/**
- * @param {number} amount user-entered amount in the given unit
- * @param {"L"|"qt"} unit
- * @param {Level} level
- * @returns {{grams:number,oz:number,fine:{tsp:number,tbsp:number},morton:{tsp:number,tbsp:number},diamond:{tsp:number,tbsp:number}}}
- */
 function calcSalt(amount, unit, level) {
   const litres = unit === "qt" ? amount * QUART_TO_LITRE : amount;
   const grams = litres * LEVELS[level].gPerL;
